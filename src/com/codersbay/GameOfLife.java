@@ -1,33 +1,29 @@
 package com.codersbay;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class GameOfLife {
+
+    private static int[][] randomizeArray(int[][] array) {
+        Random randy = new Random();
+        for (int column = 1; column < array.length - 1; column++) {
+            for (int ro = 1; ro < array.length - 1; ro++) {
+
+                array[column][ro] = randy.nextInt(2);
+            }
+        }
+        return array;
+    }
+
+
     public static void main(String[] args) {
         int fieldLength = 10;
         int[][] array = new int[fieldLength][fieldLength];
         int[][] arrayNew = new int[fieldLength][fieldLength];
-        int ticker = 3;       //USE CTRL - F2
-//        Random randy = new Random();
+        int ticker = 10;       //USE CTRL - F2
 
-       /* for (int column = 1; column < array.length-1; column++) {
-            for (int ro = 1; ro < array.length-1; ro++) {
-
-                array[column][ro] = randy.nextInt(2);
-            }}*/
-        array[2][2] = 1;
-        array[3][2] = 1;
-        array[4][2] = 1;
-        array[5][2] = 1;
-        array[6][2] = 1;
-        array[2][4] = 1;
-        array[6][4] = 1;
-        array[2][6] = 1;
-        array[3][6] = 1;
-        array[4][6] = 1;
-        array[5][6] = 1;
-        array[6][6] = 1;
-
+        randomizeArray(array);
 
         for (int i = 0; i < ticker; i++) {
             //OUTPUT
@@ -37,7 +33,7 @@ public class GameOfLife {
                 }
                 System.out.println();
             }
-            System.out.println("---------");
+            System.out.println("---------------------");
 
             for (int col = 1; col < fieldLength - 1; col++) {
                 for (int row = 1; row < fieldLength - 1; row++) {
@@ -69,7 +65,9 @@ public class GameOfLife {
         }
 
     }
-
 }
+
+
+
 
 
