@@ -61,21 +61,14 @@ public class GameOfLife {
         }
     }
 
-    public static void main(String[] args) {
-        int fieldLength = 27;
-        int[][] array = new int[fieldLength][fieldLength];
-        int[][] arrayNew = new int[fieldLength][fieldLength];
-        int ticker = 10;       //USE CTRL - F2
-
-        randomizeArray(array);
-
-        for (int i = 0; i < ticker; i++) {
+    public static void GameOfLife(int[][] array, int[][] arrayNew, int playfield, int generations) {
+        for (int i = 0; i < generations; i++) {
             Output(array);
-            }
+
             System.out.println("---------------------");
 
-            for (int col = 1; col < fieldLength - 1; col++) {
-                for (int row = 1; row < fieldLength - 1; row++) {
+            for (int col = 1; col < playfield - 1; col++) {
+                for (int row = 1; row < playfield - 1; row++) {
 
 
                     //for 1/1 to max-1/max-1, 8 surrounding fields
@@ -90,11 +83,19 @@ public class GameOfLife {
                     }
                 }
             }
+        }
         array = Arrays.stream(arrayNew).map(int[]::clone).toArray(int[][]::new);
-
     }
 
-}
+
+    public static void main(String[] args) {
+        int fieldLength = 27;
+        int[][] array = new int[fieldLength][fieldLength];
+        int[][] arrayNew = new int[fieldLength][fieldLength];
+        int ticker = 10;       //USE CTRL - F2
+        randomizeArray(array);
+        GameOfLife(array, arrayNew, fieldLength, ticker);
+    }
 
 }
 
