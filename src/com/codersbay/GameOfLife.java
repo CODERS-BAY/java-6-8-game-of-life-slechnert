@@ -1,5 +1,6 @@
 package com.codersbay;
 
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -69,8 +70,9 @@ public class GameOfLife {
                     }
                 }
             }
+            array = Arrays.stream(arrayNew).map(int[]::clone).toArray(int[][]::new);
         }
-        array = Arrays.stream(arrayNew).map(int[]::clone).toArray(int[][]::new);
+
     }
 
 
