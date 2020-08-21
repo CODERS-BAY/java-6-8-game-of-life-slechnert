@@ -77,7 +77,7 @@ public class GameOfLife {
 
 
     public static void main(String[] args) {
-        int fieldLength = 27;
+        int fieldLength = 100;
         int[][] array = new int[fieldLength][fieldLength];
         int[][] arrayNew = new int[fieldLength][fieldLength];
         int ticker = 10;       //USE CTRL - F2
